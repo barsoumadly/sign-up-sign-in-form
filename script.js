@@ -144,22 +144,24 @@ btnSignUp.addEventListener('click', () => {
     messageEl1.classList.remove('hide');
   } else {
     messageEl1.classList.add('hide');
+    if (
+      checkUserName(username) &&
+      checkEmail(email) &&
+      checkPassword(password)
+    ) {
+      messageEl1.classList.remove('hide');
+      messageEl1.classList.add('success');
+      messageEl1.textContent = 'Successfull !';
+      window.localStorage.setItem(`user${count}`, [
+        username.toLowerCase(),
+        password.toLowerCase(),
+      ]);
+      count++;
+      window.localStorage.setItem('count', count);
+      getData();
+      resetSignUp();
+    }
   }
-
-  if (checkUserName(username) && checkEmail(email) && checkPassword(password)) {
-    messageEl1.classList.remove('hide');
-    messageEl1.classList.add('success');
-    messageEl1.textContent = 'Successfull !';
-    resetSignUp();
-  }
-
-  window.localStorage.setItem(`user${count}`, [
-    username.toLowerCase(),
-    password.toLowerCase(),
-  ]);
-  count++;
-  window.localStorage.setItem('count', count);
-  getData();
 });
 
 const signIn = function (username, password) {
