@@ -60,7 +60,7 @@ const resetSignUp = function () {
     document.querySelector('.sign-up-password').value = '';
     messageEl1.classList.add('hide');
     messageEl1.classList.remove('success');
-  }, 1500);
+  }, 900);
 };
 
 const resetSignIn = function () {
@@ -69,7 +69,7 @@ const resetSignIn = function () {
     document.querySelector('.password').value = '';
     messageEl2.classList.add('hide');
     messageEl2.classList.remove('success');
-  }, 1500);
+  }, 900);
 };
 
 const printInvalidMessage = function (username, email, password) {
